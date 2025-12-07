@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>易经App 页面结构树示意图</title>
+<style>
+body {
+  font-family: "Segoe UI", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
+  background: #fdfbf4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: linear-gradient(90deg, #c6a560, #b89030);
+  color: #fff;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+.container {
+  padding: 15px;
+  overflow-x: auto;
+}
+.tree {
+  list-style-type: none;
+  padding-left: 20px;
+  border-left: 2px solid #d8c28a;
+}
+.tree li {
+  margin: 6px 0;
+  position: relative;
+  cursor: pointer;
+}
+.tree li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -14px;
+  width: 8px;
+  height: 8px;
+  background: #b89030;
+  border-radius: 50%;
+}
+.node {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #fffaf0;
+  border: 1px solid #e0d3aa;
+  transition: all 0.2s;
+}
+.node:hover {
+  background: #fff0cc;
+}
+.subtree {
+  margin-left: 20px;
+  display: none;
+}
+.open > .subtree {
+  display: block;
+}
+.toggle::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 5px;
+  color: #b89030;
+  transition: transform 0.2s;
+}
+.open > .toggle::before {
+  transform: rotate(90deg);
+}
+.english-name {
+  font-size: 0.85em;
+  color: #666;
+  margin-left: 5px;
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  header {
+    font-size: 1em;
+  }
+  .node {
+    font-size: 0.9em;
+  }
+  .english-name {
+    font-size: 0.8em;
+  }
+}
+</style>
+</head>
+<body>
+<header>易经智慧 App 页面结构示意图</header>
+<div class="container">
+  <ul class="tree">
+    <li class="toggle open"><span class="node">🌕🌕 App 根结构 <span class="english-name">(App Root Structure)</span></span>
+      <ul class="subtree">
+        <li class="toggle"><span class="node">📱📱 主导航栏 <span class="english-name">(Main Navigation)</span></span>
+          <ul class="subtree">
+            <li><span class="node">首页 <span class="english-name">(Home)</span></span></li>
+            <li><span class="node">易学功能 <span class="english-name">(Yi Studies Tools)</span></span></li>
+            <li><span class="node">运势中心 <span class="english-name">(Fortune Center)</span></span></li>
+            <li><span class="node">会员中心 <span class="english-name">(VIP Center)</span></span></li>
+            <li><span class="node">个人中心 <span class="english-name">(Profile Center)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🏠🏠 首页 <span class="english-name">(Home)</span></span>
+          <ul class="subtree">
+            <li><span class="node">顶部区域 <span class="english-name">(Top Area: Logo, Date, User Entry)</span></span></li>
+            <li><span class="node">今日黄历卡片 <span class="english-name">(Today's Almanac Card)</span></span></li>
+            <li><span class="node">今日推荐 <span class="english-name">(Today's Recommendations)</span></span></li>
+            <li><span class="node">功能快捷入口 <span class="english-name">(Quick Access Icons)</span></span></li>
+            <li><span class="node">底部横幅 <span class="english-name">(Bottom Banner: VIP + Draw Button)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">📘📘 易学功能 <span class="english-name">(Yi Studies Tools)</span></span>
+          <ul class="subtree">
+            <li><span class="node">搜索框 <span class="english-name">(Search: Dreams, Names, Fortune)</span></span></li>
+            <li class="toggle"><span class="node">功能模块 <span class="english-name">(Function Modules)</span></span>
+              <ul class="subtree">
+                <li><span class="node">八字排盘 <span class="english-name">(Bazi Analysis)</span></span></li>
+                <li><span class="node">黄历查询 <span class="english-name">(Almanac Query)</span></span></li>
+                <li><span class="node">专业起名 <span class="english-name">(Professional Naming)</span></span></li>
+                <li><span class="node">周公解梦 <span class="english-name">(Dream Interpretation)</span></span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🌠🌠 八字排盘模块 <span class="english-name">(Bazi Analysis Module)</span></span>
+          <ul class="subtree">
+            <li><span class="node">出生信息输入页 <span class="english-name">(Birth Information Input)</span></span></li>
+            <li><span class="node">排盘结果页 <span class="english-name">(Bazi Result Page)</span></span></li>
+            <li><span class="node">专业解读页 <span class="english-name">(Professional Interpretation)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">📅📅 黄历模块 <span class="english-name">(Almanac Module)</span></span>
+          <ul class="subtree">
+            <li><span class="node">今日黄历页 <span class="english-name">(Today's Almanac)</span></span></li>
+            <li><span class="node">专业黄历分析 <span class="english-name">(Professional Almanac Analysis)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🧧🧧 专业起名模块 <span class="english-name">(Professional Naming Module)</span></span>
+          <ul class="subtree">
+            <li><span class="node">信息输入页 <span class="english-name">(Information Input)</span></span></li>
+            <li><span class="node">起名结果页 <span class="english-name">(Naming Results)</span></span></li>
+            <li><span class="node">名字详细解读 <span class="english-name">(Detailed Name Interpretation)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🔮🔮 运势中心 <span class="english-name">(Fortune Center)</span></span>
+          <ul class="subtree">
+            <li><span class="node">总览页 <span class="english-name">(Overview)</span></span></li>
+            <li><span class="node">详细运势报告 <span class="english-name">(Detailed Fortune Report)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🌙🌙 周公解梦模块 <span class="english-name">(Dream Interpretation Module)</span></span>
+          <ul class="subtree">
+            <li><span class="node">梦境搜索页 <span class="english-name">(Dream Search)</span></span></li>
+            <li><span class="node">梦境详情页 <span class="english-name">(Dream Details)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🏆🏆 会员中心 <span class="english-name">(VIP Center)</span></span>
+          <ul class="subtree">
+            <li><span class="node">会员总览 <span class="english-name">(VIP Overview)</span></span></li>
+            <li><span class="node">会员充值页 <span class="english-name">(VIP Recharge)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">👤👤 个人中心 <span class="english-name">(Profile Center)</span></span>
+          <ul class="subtree">
+            <li><span class="node">个人资料+头像区域 <span class="english-name">(Profile & Avatar)</span></span></li>
+            <li><span class="node">历史记录/收藏/反馈/客服 <span class="english-name">(History/Favorites/Feedback/Support)</span></span></li>
+            <li><span class="node">设置页 <span class="english-name">(Settings)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🔐🔐 登录注册模块 <span class="english-name">(Login & Register Module)</span></span>
+          <ul class="subtree">
+            <li><span class="node">登录页 <span class="english-name">(Login Page)</span></span></li>
+            <li><span class="node">注册页 <span class="english-name">(Register Page)</span></span></li>
+          </ul>
+        </li>
+
+        <li class="toggle"><span class="node">🧩🧩 全局组件 <span class="english-name">(Global Components)</span></span>
+          <ul class="subtree">
+            <li><span class="node">会员提示弹窗 <span class="english-name">(VIP Popup)</span></span></li>
+            <li><span class="node">支付窗口 <span class="english-name">(Payment Window)</span></span></li>
+            <li><span class="node">加载动画 <span class="english-name">(Loading Animation)</span></span></li>
+            <li><span class="node">成功提示 / 错误提示 <span class="english-name">(Success/Error Messages)</span></span></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(node=>{
+  node.addEventListener('click',e=>{
+    e.stopPropagation();
+    node.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
